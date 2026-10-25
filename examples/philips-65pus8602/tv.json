@@ -1,0 +1,6 @@
+{
+  "tv": "Philips 65PUS8602/12 (TP Vision TPM171E, PH7M_EU_5596, MediaTek MT5891), European model, owner's set in China",
+  "os": "Android TV 8.0",
+  "brand": "Philips",
+  "notes": "Same firmware build (OC 4718) as the 55PUS7503 and 65PUS8102 lists, but this set was not factory-fresh when captured: 44 packages were already disabled as found (including most of the sibling lists), so only the 4 packages actually disabled and lived with are claimed here. Full as-found state, and a root path verified on this model, in the [device note](../docs/devices/philips-65pus8602.md)"
+}

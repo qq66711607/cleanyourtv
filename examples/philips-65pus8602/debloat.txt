@@ -1,0 +1,47 @@
+# Philips 65PUS8602/12 (TP Vision TPM171E, device PH7M_EU_5596), European model, owner's set in China
+# Android TV 8.0.0 (API 26), firmware build OC incremental 4718, security patch 2021-01-05.
+# MediaTek MT5891, armeabi-v7a.
+# Fingerprint: Philips/PH7M_EU_5596/PH7M_EU_5596:8.0.0/OC/4718:user/release-keys
+#
+# Same platform, device and firmware build as examples/philips-55pus7503 and
+# examples/philips-65pus8102. This list is deliberately much shorter than those two, for one
+# reason: this set was NOT factory-fresh when it was captured. It had been the owner's daily
+# TV for years and was never factory-reset before the capture on 2026-10-18. In that as-found
+# state, `pm list packages -d` already showed 44 packages disabled, including 22 of the 26
+# candidates picked from the sibling lists' families (the Google recommendation/feedback rows,
+# the Philips telemetry pair, the NetTV store and its preinstalled web apps, the Opera sample).
+# Those 22 were already off before we touched anything, so no tested credit is claimed for
+# them here; the full as-found disabled list is recorded in
+# docs/devices/philips-65pus8602.md. Only the four packages below were enabled as found,
+# disabled by us on 2026-10-18, and lived with since (daily use: replacement Home, IPTV live
+# TV, streaming apps, Bluetooth audio), with no breakage observed.
+#
+# Apply:   TV_HOST=<tv ip> tools/disable.sh examples/philips-65pus8602/debloat.txt
+# Undo:    TV_HOST=<tv ip> tools/restore.sh examples/philips-65pus8602/debloat.txt com.google.android.tvlauncher
+# Everything is DISABLED, not uninstalled. Comment out any line you want to keep.
+#
+# Stock launcher: com.google.android.tvlauncher (in this list; disable it only after the
+#                 replacement Home is installed, running and set as default)
+# Live TV app:    org.droidtv.playtv (kept; this household watches IPTV through it and other apps)
+#
+# Caution, org.droidtv.nettvbrowser: on this set it was already disabled as found and nothing
+# here re-enables it. The philips-65pus8102 list keeps it on purpose because it is the HbbTV
+# handler. This household does not use broadcast or HbbTV at all, so that function is NOT
+# validated here; if you use broadcast channels, enable it and check the red button.
+#
+# Kept on purpose, do NOT disable:
+#   org.droidtv.playtv, org.droidtv.settings, org.droidtv.tvsystemui, com.mediatek.tvinput:
+#   tuner, sources, settings, remote.
+#   Chromecast (com.google.android.apps.mediashell), firmware updates, Ambilight, Play Store.
+
+# Stock launcher, disabled after the replacement Home (Sva Launcher) was running as default
+com.google.android.tvlauncher
+
+# Philips NetTV account registration (same package as in the philips-65pus8102 list)
+org.droidtv.nettvregistration
+
+# MediaTek time measurement agent; no user-facing function observed on this set
+com.mediatek.TimeMeasurementAgent
+
+# Sample TV content provider; no user-facing function observed on this set
+com.example.tvcontentprovider
